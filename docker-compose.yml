@@ -8,7 +8,7 @@ services:
       - start
       - --optimized
       - --spi-login-protocol-openid-connect-suppress-logout-confirmation-screen=true
-      - --features=authorization,account3,account-api,admin2,scripts,token-exchange,web-authn,declarative-user-profile,step-up-authentication,recovery-codes,update-email,js-adapter,preview,impersonation,admin-api
+      # - --features=authorization,account3,account-api,admin2,scripts,token-exchange,web-authn,declarative-user-profile,step-up-authentication,recovery-codes,update-email,js-adapter,preview,impersonation,admin-api
     environment:
       KEYCLOAK_ADMIN: ${ADMIN_USERNAME}
       KEYCLOAK_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
