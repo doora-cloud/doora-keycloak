@@ -6,6 +6,7 @@ services:
     restart: always
     command:
       - start
+      - --optimized
       - --health-enabled=true
       - --metrics-enabled=true
       - --spi-login-protocol-openid-connect-suppress-logout-confirmation-screen=true
