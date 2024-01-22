@@ -6,9 +6,13 @@ services:
     restart: always
     command:
       - start
-      - --optimized
+      # - --optimized
       - --spi-login-protocol-openid-connect-suppress-logout-confirmation-screen=true
-      # - --features=authorization,account3,account-api,admin2,scripts,token-exchange,web-authn,declarative-user-profile,step-up-authentication,recovery-codes,update-email,js-adapter,preview,impersonation,admin-api
+      - --features=authorization,account3,account-api,admin2,scripts,token-exchange,web-authn,declarative-user-profile,step-up-authentication,recovery-codes,update-email,js-adapter,preview,impersonation,admin-api
+      - --db=postgres
+      - --db-url=jdbc:postgresql://db:5432/${POSTGRES_DB}
+      - --db-username=${POSTGRES_USER}
+      - --db-password=${POSTGRES_PASSWORD}
     environment:
       KEYCLOAK_ADMIN: ${ADMIN_USERNAME}
       KEYCLOAK_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
