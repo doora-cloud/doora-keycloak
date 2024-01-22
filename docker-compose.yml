@@ -4,9 +4,16 @@ services:
   app:
     image: quay.io/keycloak/keycloak:latest
     restart: always
+    command:
+      - start
+      - --health-enabled=true
+      - --metrics-enabled=true
+      - --spi-login-protocol-openid-connect-suppress-logout-confirmation-screen=true
+      - --features=authorization,account3,account-api,admin2,scripts,token-exchange,web-authn,declarative-user-profile,step-up-authentication,recovery-codes,update-email,js-adapter,preview,impersonation,admin-api
     environment:
       KEYCLOAK_ADMIN: ${ADMIN_USERNAME}
       KEYCLOAK_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      KC_DB: postgres
       KC_DB_URL: jdbc:postgresql://db:5432/${POSTGRES_DB}
       KC_DB_USERNAME: ${POSTGRES_USER}
       KC_DB_PASSWORD: ${POSTGRES_PASSWORD}
