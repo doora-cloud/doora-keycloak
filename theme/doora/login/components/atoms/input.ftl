@@ -40,7 +40,7 @@
           @click="show = !show"
           aria-controls="${name}"
           :aria-expanded="show"
-          class="absolute text-secondary-400 right-4 top-4 sm:top-[1.15rem]"
+          class="absolute text-secondary-400 right-4 top-4 sm:top-[1.1rem]"
           type="button"
         >
           <div x-show="!show">
