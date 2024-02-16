@@ -4,7 +4,7 @@
 <#macro
   kw
   autofocus=false
-  class="block border-secondary-200 mt-1 w-full focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 sm:text-sm transition-colors p-4 rounded-xl"
+  class="block border-secondary-200 mt-1 w-full focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 sm:text-sm transition-colors p-3 md:p-4 rounded-xl"
   disabled=false
   invalid=false
   label=""
@@ -40,7 +40,7 @@
           @click="show = !show"
           aria-controls="${name}"
           :aria-expanded="show"
-          class="absolute text-secondary-400 right-3 top-3 sm:top-2"
+          class="absolute text-secondary-400 right-4 top-4 sm:top-[1.15rem]"
           type="button"
         >
           <div x-show="!show">

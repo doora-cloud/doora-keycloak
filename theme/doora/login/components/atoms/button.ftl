@@ -12,7 +12,7 @@
 
   <#switch size>
     <#case "large">
-      <#assign sizeClass="px-4 py-4 text-base">
+      <#assign sizeClass="px-4 py-3 md:py-4 text-base">
       <#break>
     <#case "medium">
       <#assign sizeClass="px-4 py-2 text-sm">

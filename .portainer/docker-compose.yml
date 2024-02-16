@@ -1,4 +1,4 @@
-version: "3.9"
+version: '3.9'
 
 services:
   app:
@@ -21,9 +21,11 @@ services:
       KC_DB_USERNAME: ${POSTGRES_USER}
       KC_DB_PASSWORD: ${POSTGRES_PASSWORD}
       KC_HOSTNAME: ${APP_URL}
-      KC_PROXY: "edge"
+      KC_PROXY: 'edge'
       KC_METRICS_ENABLED: true
       KC_HEALTH_ENABLED: true
+    volumes:
+      - ${BASE_VOLUME}/themes:/opt/keycloak/themes
     expose:
       - 8080
     networks:
@@ -39,7 +41,7 @@ services:
           cpus: ${LIMIT_CPU_APP:-1}
           memory: ${LIMIT_RAM_APP:-2G}
         reservations:
-          cpus: "0.5"
+          cpus: '0.5'
           memory: 256M
   db:
     image: postgres:14-alpine
@@ -56,7 +58,7 @@ services:
       - internal
       - monitoring
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready"]
+      test: ['CMD-SHELL', 'pg_isready']
       interval: 10s
       timeout: 5s
       retries: 5
@@ -66,7 +68,7 @@ services:
           cpus: ${LIMIT_CPU_DB:-1}
           memory: ${LIMIT_RAM_DB:-1G}
         reservations:
-          cpus: "0.1"
+          cpus: '0.1'
           memory: 64M
   db-exporter:
     image: prometheuscommunity/postgres-exporter:latest
@@ -87,7 +89,7 @@ services:
           cpus: ${LIMIT_CPU_DB_EXPORTER:-0.2}
           memory: ${LIMIT_RAM_DB_EXPORTER:-128M}
         reservations:
-          cpus: "0.1"
+          cpus: '0.1'
           memory: 10M
 
 networks:

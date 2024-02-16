@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  app:
+    image: quay.io/keycloak/keycloak:latest
+    command:
+      - start-dev
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    volumes:
+      - ./theme:/opt/keycloak/themes
+    ports:
+      - 8080:8080

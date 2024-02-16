@@ -19,9 +19,6 @@
   showAnotherWayIfPresent=true
 >
   <#assign cardHeader>
-    <@logo.kw>
-      ${kcSanitize(msg("loginTitleHtml", (realm.displayNameHtml!"")))?no_esc}
-    </@logo.kw>
     <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
       <@heading.kw>
         <#nested "header">
@@ -69,9 +66,11 @@
     <head>
       <@document.kw script=script />
     </head>
+
     <@body.kw>
       <@container.kw>
         <@card.kw content=cardContent footer=cardFooter header=cardHeader />
+
         <@nav.kw>
           <#nested "nav">
           <#if realm.internationalizationEnabled && locale.supported?size gt 1>

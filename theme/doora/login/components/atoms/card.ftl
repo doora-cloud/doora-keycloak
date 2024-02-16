@@ -1,15 +1,17 @@
 <#macro kw content="" footer="" header="">
-  <div class="bg-white py-12 px-14 rounded-xl space-y-6 animate__animated animate__zoomIn">
+  <div class="h-full px-4 md:py-12 md:px-14">
     <#if header?has_content>
-      <div class="space-y-4">
+      <div class="space-y-4 pb-12">
         ${header}
       </div>
     </#if>
+
     <#if content?has_content>
-      <div class="space-y-4">
+      <div class="space-y-4 pb-8">
         ${content}
       </div>
     </#if>
+
     <#if footer?has_content>
       <div class="space-y-4">
         ${footer}
