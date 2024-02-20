@@ -75,7 +75,7 @@
         <div class="g-recaptcha" data-sitekey="${recaptchaSiteKey}" data-size="compact"></div>
       </#if>
       <@buttonGroup.kw>
-        <@button.kw color="primary" type="submit">
+        <@button.kw color="primary" type="submit" size="large">
           ${msg("doRegister")}
         </@button.kw>
       </@buttonGroup.kw>
