@@ -31,3 +31,10 @@
     @apply mr-2;
   }
 }
+
+.bg-doora {
+  background: url('../images/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

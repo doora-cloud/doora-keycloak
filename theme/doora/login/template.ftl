@@ -19,6 +19,9 @@
   showAnotherWayIfPresent=true
 >
   <#assign cardHeader>
+    <@logo.kw>
+      ${kcSanitize(msg("loginTitleHtml", (realm.displayNameHtml!"")))?no_esc}
+    </@logo.kw>
     <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
       <@heading.kw>
         <#nested "header">
@@ -60,6 +63,17 @@
     <#if displayInfo>
       <#nested "info">
     </#if>
+
+    <div class="pt-4">
+      <@nav.kw>
+        <#nested "nav">
+        <#if realm.internationalizationEnabled && locale.supported?size gt 1>
+          <@localeProvider.kw currentLocale=locale.current locales=locale.supported />
+        </#if>
+      </@nav.kw>
+    </div>
+
+
   </#assign>
 
   <html<#if realm.internationalizationEnabled> lang="${locale.currentLanguageTag}"</#if>>
@@ -70,13 +84,6 @@
     <@body.kw>
       <@container.kw>
         <@card.kw content=cardContent footer=cardFooter header=cardHeader />
-
-        <@nav.kw>
-          <#nested "nav">
-          <#if realm.internationalizationEnabled && locale.supported?size gt 1>
-            <@localeProvider.kw currentLocale=locale.current locales=locale.supported />
-          </#if>
-        </@nav.kw>
       </@container.kw>
     </@body.kw>
   </html>
